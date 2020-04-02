@@ -435,17 +435,20 @@
     <section class="main-block">
         <div class="container">
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <div class="add-listing-wrap">
                         <h2>Reach millions of People</h2>
                         <p>Add your Business infront of millions and earn 3x profits from our listing</p>
                     </div>
-                </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-4">
                     <div class="featured-btn-wrap">
                         <a href="#" class="btn btn-danger"><span class="ti-plus"></span> ADD LISTING</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="styled-heading2">
+                        <h3 onmousedown="randRecommend()" align="center">Recommend? <img src="images/rabbit.gif" width="65" height="65" ></h3>
+                        <br>
+                        <h3 id="reco" align="center"></h3>
                     </div>
                 </div>
             </div>
@@ -496,6 +499,49 @@
 
             };
         });
+
+        var menuList = [
+                    '개미집',
+                    '대련집',
+                    '동원집',
+                    '등촌샤브샤브',
+                    '안성집',
+                    '유숙단 부자낙지',
+                    '봉추찜닭',
+                    '이모네돌솥밥',
+                    '창고43',
+                    '황소유황오리',
+                    '가야성',
+                    '만보성',
+                    '바오차이',
+                    '안동장',
+                    '차이797',
+                    '라크슌',
+                    '오카구라',
+                    '이춘복참치',
+                    '송전일식',
+                    '코코이찌방',
+                    '도이농쌀국수',
+                    '반쿤콴',
+                    '샤오바오우육면',
+                    '점보식스',
+                    '포탈라',
+                    '화덕과베토벤',
+                    '녁',
+                    '컨트리맨즈',
+                    '청시행',
+                    '르브와',
+                    '경일옥 핏제리아',
+                    '카페마마스'
+                ];
+
+        function randRecommend(){
+            var rand = Math.floor( menuList.length * Math.random());
+            var randText = menuList[rand];
+            var recommendRestaurant ='<p>' + randText + ' </p>';
+            reco.innerHTML = recommendRestaurant;
+        }
+
     </script>
 </body>
 
