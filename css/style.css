@@ -319,8 +319,9 @@ p {
     display: block;
     text-decoration: none;
     color: #000; }
-  .featured-place-wrap img {
-    width: 100%; }
+.featured-place-wrap img {
+    width: 100%;
+     }  
 
 .featured-rating,
 .featured-rating-orange,
