@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="author" content="Colorlib">
+    <meta name="description" content="#">
+    <meta name="keywords" content="#">
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="#">
+    <!-- Page Title -->
+    <title>Listing &amp; Directory Website Template</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700,900" rel="stylesheet">
+    <!-- Simple line Icon -->
+    <link rel="stylesheet" href="css/simple-line-icons.css">
+    <!-- Themify Icon -->
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <!-- Hover Effects -->
+    <link rel="stylesheet" href="css/set1.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- infowindow css file -->
+    <link rel="stylesheet" href="css/Ex.css"> 
+</head>
+
+<body>
+    <!--============================= HEADER =============================-->
+    <div class="dark-bg sticky-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <nav class="navbar navbar-expand-lg navbar-light">
+                        <a class="navbar-brand" href="index.html">Euljiro</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//END HEADER -->
+    <!--============================= DETAIL =============================-->
+    <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-7 responsive-wrap">
+                    <div class="row detail-filter-wrap">
+                        <div class="col-md-4 featured-responsive">
+                            <div id="display" class="detail-filter-text">
+                            </div>
+                        </div>
+                        <div class="col-md-8 featured-responsive">
+                            <br>
+                            <div class="detail-filter">
+                                <form class="filter-dropdown"></form>
+                                <form class="filter-dropdown"></form>
+                                <div class="map-responsive-wrap">
+                                    <a class="map-icon" href="#"><span class="icon-location-pin"></span></a>
+                                </div>
+                            </div>
+                        </div>                     
+                    </div>
+                    <div class="row light-bg detail-options-wrap">
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res0" class="featured-place-wrap" onmouseover="showInfo(0)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?entry=plt&id=1032946375&query=%EA%B2%BD%EC%9D%BC%EC%98%A5%20%ED%95%8F%EC%A0%9C%EB%A6%AC%EC%95%84" target="_blank">
+                                    <img src="images/경일옥.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>경일옥 핏제리아</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 을지로3가 을지로16길 2-1</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>010-3357-9015</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res1" class="featured-place-wrap" onmouseover="showInfo(1)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?entry=plt&id=412011201&query=%EB%85%81" target="_blank">
+                                    <img src="images/녁.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>녁</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 수표동 수표로 65</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>070-4150-0504</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res2"class="featured-place-wrap" onmouseover="showInfo(2)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?id=20322612" target="_blank">
+                                    <img src="images/르브와.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>르브와</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 종로구 관철동 우정국로2길 42 4층</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>02-739-8208</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res3" class="featured-place-wrap" onmouseover="showInfo(3)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?id=1034530688" target="_blank">
+                                    <img src="images/비밀.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>비밀더비스트로</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 수표동 99 번지 시그니쳐타워 지하</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>02-6020-0150</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res4" class="featured-place-wrap" onmouseover="showInfo(4)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?entry=plt&id=117989559&query=%EC%9C%A0%EC%97%90%EC%84%9C%EC%9C%A0" target="_blank">
+                                    <img src="images/유에서유.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>유에서유</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 수표동 수표로 65</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>02-2261-0314</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res5" class="featured-place-wrap" onmouseover="showInfo(5)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?id=1444910504" target="_blank">
+                                    <img src="images/을지다락.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>을지다락</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 초동 수표로10길 19 4층</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>070-8844-4484</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res6" class="featured-place-wrap" onmouseover="showInfo(6)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?entry=plt&id=1764475035&query=%EC%9D%84%EC%A7%80%EB%A1%9C%EB%AF%B8%ED%8C%85%EB%A3%B8" target="_blank">
+                                    <img src="images/을지로미팅룸.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>을지로미팅룸</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 을지로3가 을지로12길 19</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>010-6327-0708</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res7" class="featured-place-wrap" onmouseover="showInfo(7)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?entry=plt&id=1762500519&query=%EC%9E%84%EB%A7%88%EC%A7%80%EB%85%B8" target="_blank">
+                                    <img src="images/임마지노.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>임마지노</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 저동2가 을지로12길 28</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>010-4207-8849</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res8" class="featured-place-wrap" onmouseover="showInfo(8)" onmouseout="hideInfo()">
+                                <a href="https://blog.naver.com/onlyonej/221446922575" target="_blank">
+                                    <img src="images/준수방키친.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>준수방키친</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 저동1가 삼일대로 343</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>02-3789-0692</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res9" class="featured-place-wrap" onmouseover="showInfo(9)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?id=1191092879" target="_blank">
+                                    <img src="images/청시행.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>청시행</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 을지로3가 95-13</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>070-7745-6224</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res10" class="featured-place-wrap" onmouseover="showInfo(10)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?entry=plt&id=30999918&query=%EC%B9%B4%ED%8E%98%EB%A7%88%EB%A7%88%EC%8A%A4%20%EC%84%BC%ED%84%B0%EC%9B%90%EC%A0%90" target="_blank">
+                                    <img src="images/카페마마스.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>카페마마스</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 수하동 을지로5길 26</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>02-6030-8979</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res11" class="featured-place-wrap" onmouseover="showInfo(11)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?id=37130687" target="_blank">
+                                    <img src="images/컨트리맨즈.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>컨트리맨즈</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 종로구 관철동 청계천로 73</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>02-723-7234</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">
+                            <div id="res12" class="featured-place-wrap" onmouseover="showInfo(12)" onmouseout="hideInfo()">
+                                <a href="https://store.naver.com/restaurants/detail?entry=plt&id=37240436&query=%ED%99%94%EB%8D%95%EA%B3%BC%EB%B2%A0%ED%86%A0%EB%B2%A4" target="_blank">
+                                    <img src="images/화덕과베토벤.jpg" class="img-fluid" alt="#">
+                                    <div class="featured-title-box">
+                                        <h6>화덕과베토벤</h6>
+                                        <p>Restaurant </p>
+                                        <ul>
+                                            <li><span class="icon-location-pin"></span>
+                                                <p>서울특별시 중구 명동 삼일대로12길 2층</p>
+                                            </li>
+                                            <li><span class="icon-screen-smartphone"></span>
+                                                <p>02-2275-7775</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <script src="js/jquery-3.2.1.min.js"></script>
+                <script src="js/popper.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script>
+                    $(".map-icon").click(function() {
+                        $(".map-fix").toggle();
+                    });
+                </script>
+
+                <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ij270c6y7y"></script>
+
+                <div class="col-md-5 responsive-wrap map-wrap">                            
+                    <div class="map-fix">
+                        <div id="map"></div>
+                    </div>
+                </div>
+                
+                <script>
+                    var markers = [];
+
+                    var map = new naver.maps.Map('map', {
+
+                    // 지도 중앙 위치 : 위도, 경도 설정
+                    center : new naver.maps.LatLng( 37.567644, 126.988685 ),
+
+                    // 줌 설정 : 1~14, 수치가 클수록 지도 확대(줌인), 이 옵션 생략시 기본값 9
+                    zoom : 16,
+
+                    // 줌 컨트롤 표시, 지정하지 않으면 false 가 기본값
+                    zoomControl : true,
+
+                    // 줌 컨트롤 오른쪽 위로 위치 설정
+                    zoomControlOptions : {
+                        position : naver.maps.Position.TOP_RIGHT // 오른쪽 위로 설정
+                    },
+
+                    // 일반ㆍ위성 지도보기 컨트롤 표시, 지정하지 않으면 false 가 기본값
+                    mapTypeControl : true,
+
+                });
+
+                //식당 위치 등록
+                var latlngs = [
+                    new naver.maps.LatLng(37.566117, 126.993498),
+                    new naver.maps.LatLng(37.566887, 126.989532),
+                    new naver.maps.LatLng(37.569397, 126.985365),
+                    new naver.maps.LatLng(37.567495, 126.988391),
+                    new naver.maps.LatLng(37.567027, 126.989387),
+                    new naver.maps.LatLng(37.563722, 126.991391),
+                    new naver.maps.LatLng(37.565383, 126.991039),
+                    new naver.maps.LatLng(37.565188, 126.990456),
+                    new naver.maps.LatLng(37.565257, 126.987107),
+                    new naver.maps.LatLng(37.567024, 126.990922),
+                    new naver.maps.LatLng(37.56769 , 126.985481),
+                    new naver.maps.LatLng(37.568612, 126.985877),
+                    new naver.maps.LatLng(37.566772, 126.988835)
+                ];
+
+                //식당 이름 등록
+                var storeList = [
+                    '경일옥 핏제리아',
+                    '녁',
+                    '르브와',
+                    '비밀더비스트로',
+                    '유에서유',
+                    '을지다락',
+                    '을지로미팅룸',
+                    '임마지노',
+                    '준수방키친',
+                    '청시행',
+                    '카페마마스',
+                    '컨트리맨즈',
+                    '화덕과베토벤'
+                ];
+                var storeName;
+
+                //infowindow
+                var Infowindow;
+
+                //식당 주소 등록
+                var addList = [
+                    '서울특별시 중구 을지로3가 을지로16길 2-1',
+                    '서울특별시 중구 수표동 수표로 65',
+                    '서울특별시 종로구 관철동 우정국로2길 42 4층',
+                    '서울특별시 중구 수표동 99 번지 시그니쳐타워 지하',
+                    '서울특별시 중구 수표동 수표로 65',
+                    '서울특별시 중구 초동 수표로10길 19 4층',
+                    '서울특별시 중구 을지로3가 을지로12길 19',
+                    '서울특별시 중구 저동2가 을지로12길 28',
+                    '서울특별시 중구 저동1가 삼일대로 343',
+                    '서울특별시 중구 을지로3가 95-13',
+                    '서울특별시 중구 수하동 을지로5길 26',
+                    '서울특별시 종로구 관철동 청계천로 73',
+                    '서울특별시 중구 명동 삼일대로12길 2층'
+                ];
+                var address;
+
+                //식당 메뉴 등록
+                var menuList = [
+                    '파스타, 피자',
+                    '파스타, 피자',
+                    '파스타, 피자',
+                    '파스타, 피자',
+                    '스테이크, 파스타',
+                    '파스타',
+                    '파스타',
+                    '파스타',
+                    '피자',
+                    '수제 버거',
+                    '브런치',
+                    '치킨 오이스터, 파스타',
+                    '파스타, 피자'
+                ];
+                var menuName;
+
+                var storeLink = [
+                    'https://store.naver.com/restaurants/detail?entry=plt&id=1032946375&query=%EA%B2%BD%EC%9D%BC%EC%98%A5%20%ED%95%8F%EC%A0%9C%EB%A6%AC%EC%95%84',
+                    'https://store.naver.com/restaurants/detail?entry=plt&id=412011201&query=%EB%85%81',
+                    'https://store.naver.com/restaurants/detail?id=20322612',
+                    'https://store.naver.com/restaurants/detail?id=1034530688',
+                    'https://store.naver.com/restaurants/detail?entry=plt&id=117989559&query=%EC%9C%A0%EC%97%90%EC%84%9C%EC%9C%A0',
+                    'https://store.naver.com/restaurants/detail?id=1444910504',
+                    'https://store.naver.com/restaurants/detail?entry=plt&id=1764475035&query=%EC%9D%84%EC%A7%80%EB%A1%9C%EB%AF%B8%ED%8C%85%EB%A3%B8',
+                    'https://store.naver.com/restaurants/detail?entry=plt&id=1762500519&query=%EC%9E%84%EB%A7%88%EC%A7%80%EB%85%B8',
+                    'https://blog.naver.com/onlyonej/221446922575',
+                    'https://store.naver.com/restaurants/detail?id=1191092879',
+                    'https://store.naver.com/restaurants/detail?entry=plt&id=30999918&query=%EC%B9%B4%ED%8E%98%EB%A7%88%EB%A7%88%EC%8A%A4%20%EC%84%BC%ED%84%B0%EC%9B%90%EC%A0%90',
+                    'https://store.naver.com/restaurants/detail?id=37130687',
+                    'https://store.naver.com/restaurants/detail?entry=plt&id=37240436&query=%ED%99%94%EB%8D%95%EA%B3%BC%EB%B2%A0%ED%86%A0%EB%B2%A4'
+                ];
+
+                //식당 위치 마커 표시
+                for(var i=0; i<latlngs.length; i++){
+                    var marker = new naver.maps.Marker({
+                        position: latlngs[i],
+                        map: map
+                    });
+
+                    markers.push(marker);
+                    marker.set('seq', i);
+
+                    marker.addListener('mouseover', onMouseOver);
+                    marker.addListener('mouseout', onMouseOut);
+                    marker.addListener('click', onClick);
+                    marker = null;
+                }
+
+                function onClick(e){
+                    var marker = e.overlay,
+                        seq = marker.get('seq');
+
+                    var divId = 'res'+seq;
+                    document.getElementById(divId).scrollIntoView();
+                    document.getElementById(divId).style.border = "2px solid #0101DF";
+                }  
+
+                function onMouseOver(e) {
+                    var marker = e.overlay,
+                        seq = marker.get('seq');
+
+                    storeName = storeList[seq];
+                    address = addList[seq];
+                    menuName = menuList[seq];
+                    setInfoWindow();
+                    Infowindow.open(map, marker);
+                }
+
+                function onMouseOut(e) {
+                    var marker = e.overlay,
+                        seq = marker.get('seq');
+
+                    Infowindow.close();
+                    var divId = 'res'+seq;
+                    document.getElementById(divId).style.border = "0px";
+                }
+
+                function showInfo(idx){
+                    var marker = markers[idx];
+
+                    storeName = storeList[idx];
+                    address = addList[idx];
+                    menuName = menuList[idx];
+                    setInfoWindow();
+                    Infowindow.open(map, marker);
+                }
+
+                function hideInfo(){
+                    Infowindow.close();   
+                }
+
+                function setInfoWindow(){
+                    var contentString = 
+                    [
+                        '<div class = "box-place" >' + storeName,                                     
+                        '<br>',                  
+                        '<span style = "color : deepskyblue; font-size: 12px; font-weight:nomal;">'
+                        + menuName + '</span>', 
+                        '</div>'
+                    ].join('');
+
+                Infowindow = new naver.maps.InfoWindow(
+                    {
+                        content: contentString,
+                        Width: 1000,      //크기
+                        backgroundColor: "transparent",        // 배경색
+                        borderColor : "transparent",     //테두리 색                      
+                        borderWidth: 0,     // 테두리 굵기
+                        anchorSize: new naver.maps.Size(2, 2)    // 말풍선 꼬리 크기
+                    });
+                }
+
+                var numRestaurant ='<p>' + latlngs.length + ' Results For <span>Restaurant</span></p>';
+                display.innerHTML = numRestaurant;
+
+                </script>
+                
+            </div>
+        </div>
+    </section>
+    <!--//END DETAIL -->
+    <!--============================= FOOTER =============================-->
+  <footer class="main-block dark-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="copyright">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p>Copyright &copy; 2020 Food Map. All rights reserved | This site is made with by KKPC</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--//END FOOTER -->
+</body>
+
+</html>
