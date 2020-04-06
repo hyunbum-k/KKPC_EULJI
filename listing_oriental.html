@@ -442,27 +442,6 @@
 
                 });
 
-                //식당 위치 등록
-                var latlngs = [
-                    new naver.maps.LatLng(37.567017, 126.988505),
-                    new naver.maps.LatLng(37.569140, 126.984307),
-                    new naver.maps.LatLng(37.569096, 126.986625),
-                    
-
-                    new naver.maps.LatLng(37.567491, 126.985108),
-                    new naver.maps.LatLng(37.565840, 126.989051),
-                    
-                    new naver.maps.LatLng(37.568558, 126.986127),
-                    new naver.maps.LatLng(37.569823, 126.984601),
-                   
-                    new naver.maps.LatLng(37.565714, 126.991054),
-                    new naver.maps.LatLng(37.564952, 126.989674),
-                    
-                    new naver.maps.LatLng(37.565186, 126.990006),
-                    new naver.maps.LatLng(37.568389, 126.988656)
-                ];
-                
-
                 var storename;
                 //식당 이름 등록
                 var storeList = [
@@ -561,20 +540,38 @@
 
 
                 //식당 위치 마커 표시
-                for(var i=0; i<latlngs.length; i++){
-                    var marker = new naver.maps.Marker({
-                        position: latlngs[i],
-                        map: map
+                for(var i=0; i<storeList.length; i++){
+                    searchAddressToCoordinate(addList[i], i);                  
+                }
+
+                function searchAddressToCoordinate(address, idx) {
+                    naver.maps.Service.geocode({
+                        query: address
+                    }, function(status, response) {
+                        if (status === naver.maps.Service.Status.ERROR) {
+                            return alert('Something Wrong!');
+                        }
+                        if (response.v2.meta.totalCount === 0) {
+                            return alert('totalCount' + response.v2.meta.totalCount);
+                        }
+
+                        var item = response.v2.addresses[0],
+                            point = new naver.maps.Point(item.x, item.y);
+
+                        var marker = new naver.maps.Marker({
+                            position: point,
+                            map: map
+                        });
+
+                        markers.push(marker);
+                        marker.set('seq', idx);
+
+                        naver.maps.Event.addListener(marker, 'mouseover', onMouseOver);
+                        naver.maps.Event.addListener(marker, 'mouseout', onMouseOut);
+                        naver.maps.Event.addListener(marker, 'click', onClick);
+                        marker = null;
                     });
-
-                    markers.push(marker);
-                    marker.set('seq', i);
-
-                    marker.addListener('mouseover', onMouseOver);
-                    marker.addListener('mouseout', onMouseOut);
-                    marker.addListener('click', onClick);
-                    marker = null;
-                }   
+                } 
 
 
                 function onClick(e){
@@ -670,7 +667,7 @@
                 }
 
 
-            var numRestaurant ='<p>' + latlngs.length + ' Results For <span>Restaurant</span></p>';
+            var numRestaurant ='<p>' + storeList.length + ' Results For <span>Restaurant</span></p>';
                 display.innerHTML = numRestaurant;
                 </script>
                 

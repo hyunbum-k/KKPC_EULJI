@@ -370,23 +370,6 @@
 
                 });
 
-                //식당 위치 등록
-                var latlngs = [
-                    new naver.maps.LatLng(37.566117, 126.993498),
-                    new naver.maps.LatLng(37.566887, 126.989532),
-                    new naver.maps.LatLng(37.569397, 126.985365),
-                    new naver.maps.LatLng(37.567495, 126.988391),
-                    new naver.maps.LatLng(37.567027, 126.989387),
-                    new naver.maps.LatLng(37.563722, 126.991391),
-                    new naver.maps.LatLng(37.565383, 126.991039),
-                    new naver.maps.LatLng(37.565188, 126.990456),
-                    new naver.maps.LatLng(37.565257, 126.987107),
-                    new naver.maps.LatLng(37.567024, 126.990922),
-                    new naver.maps.LatLng(37.56769 , 126.985481),
-                    new naver.maps.LatLng(37.568612, 126.985877),
-                    new naver.maps.LatLng(37.566772, 126.988835)
-                ];
-
                 //식당 이름 등록
                 var storeList = [
                     '경일옥 핏제리아',
@@ -461,20 +444,38 @@
                 ];
 
                 //식당 위치 마커 표시
-                for(var i=0; i<latlngs.length; i++){
-                    var marker = new naver.maps.Marker({
-                        position: latlngs[i],
-                        map: map
-                    });
-
-                    markers.push(marker);
-                    marker.set('seq', i);
-
-                    marker.addListener('mouseover', onMouseOver);
-                    marker.addListener('mouseout', onMouseOut);
-                    marker.addListener('click', onClick);
-                    marker = null;
+                for(var i=0; i<storeList.length; i++){
+                    searchAddressToCoordinate(addList[i], i);                  
                 }
+
+                function searchAddressToCoordinate(address, idx) {
+                    naver.maps.Service.geocode({
+                        query: address
+                    }, function(status, response) {
+                        if (status === naver.maps.Service.Status.ERROR) {
+                            return alert('Something Wrong!');
+                        }
+                        if (response.v2.meta.totalCount === 0) {
+                            return alert('totalCount' + response.v2.meta.totalCount);
+                        }
+
+                        var item = response.v2.addresses[0],
+                            point = new naver.maps.Point(item.x, item.y);
+
+                        var marker = new naver.maps.Marker({
+                            position: point,
+                            map: map
+                        });
+
+                        markers.push(marker);
+                        marker.set('seq', idx);
+
+                        naver.maps.Event.addListener(marker, 'mouseover', onMouseOver);
+                        naver.maps.Event.addListener(marker, 'mouseout', onMouseOut);
+                        naver.maps.Event.addListener(marker, 'click', onClick);
+                        marker = null;
+                    });
+                } 
 
                 function onClick(e){
                     var marker = e.overlay,
@@ -540,7 +541,7 @@
                     });
                 }
 
-                var numRestaurant ='<p>' + latlngs.length + ' Results For <span>Restaurant</span></p>';
+                var numRestaurant ='<p>' + storeList.length + ' Results For <span>Restaurant</span></p>';
                 display.innerHTML = numRestaurant;
 
                 </script>

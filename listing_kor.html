@@ -413,25 +413,6 @@
 
                 });
 
-                //식당 위치 등록
-                var latlngs = [
-                    new naver.maps.LatLng(37.568914, 126.985898),
-                    new naver.maps.LatLng(37.565502, 126.983756),
-                    new naver.maps.LatLng(37.568367, 126.988871),
-                    new naver.maps.LatLng(37.567286, 126.990945),
-                    new naver.maps.LatLng(37.56874 , 126.987337),
-                    new naver.maps.LatLng(37.566457, 126.988708),
-                    new naver.maps.LatLng(37.569241, 126.988437),
-                    new naver.maps.LatLng(37.566515, 126.988482),
-                    new naver.maps.LatLng(37.567283, 126.993373),
-                    new naver.maps.LatLng(37.568953, 126.986158),
-                    new naver.maps.LatLng(37.565636, 126.989972),
-                    new naver.maps.LatLng(37.566393, 126.989843),
-                    new naver.maps.LatLng(37.56582 , 126.989041),
-                    new naver.maps.LatLng(37.564899, 126.990371),
-                    new naver.maps.LatLng(37.566403, 126.989059)
-                ];
-
                 //식당 이름 등록
                 var storeList = [
                     '개미집',
@@ -514,20 +495,38 @@
                 ];
 
                 //식당 위치 마커 표시
-                for(var i=0; i<latlngs.length; i++){
-                    var marker = new naver.maps.Marker({
-                        position: latlngs[i],
-                        map: map
+                for(var i=0; i<storeList.length; i++){
+                    searchAddressToCoordinate(addList[i], i);                  
+                }
+
+                function searchAddressToCoordinate(address, idx) {
+                    naver.maps.Service.geocode({
+                        query: address
+                    }, function(status, response) {
+                        if (status === naver.maps.Service.Status.ERROR) {
+                            return alert('Something Wrong!');
+                        }
+                        if (response.v2.meta.totalCount === 0) {
+                            return alert('totalCount' + response.v2.meta.totalCount);
+                        }
+
+                        var item = response.v2.addresses[0],
+                            point = new naver.maps.Point(item.x, item.y);
+
+                        var marker = new naver.maps.Marker({
+                            position: point,
+                            map: map
+                        });
+
+                        markers.push(marker);
+                        marker.set('seq', idx);
+
+                        naver.maps.Event.addListener(marker, 'mouseover', onMouseOver);
+                        naver.maps.Event.addListener(marker, 'mouseout', onMouseOut);
+                        naver.maps.Event.addListener(marker, 'click', onClick);
+                        marker = null;
                     });
-
-                    markers.push(marker);
-                    marker.set('seq', i);
-
-                    marker.addListener('mouseover', onMouseOver);
-                    marker.addListener('mouseout', onMouseOut);
-                    marker.addListener('click', onClick);
-                    marker = null;
-                }   
+                } 
 
                 function onClick(e){
                     var marker = e.overlay,
@@ -594,7 +593,7 @@
                 }
 
                 //restaurant 갯수 출력
-                var numRestaurant ='<p>' + latlngs.length + ' Results For <span>Restaurant</span></p>';
+                var numRestaurant ='<p>' + storeList.length + ' Results For <span>Restaurant</span></p>';
                 display.innerHTML = numRestaurant;
 
                 </script>                
