@@ -480,6 +480,19 @@
             };
         });
 
+        $("#reco").click(function(){
+            $.ajax({
+                type : 'get',
+                url : 'http://localhost:8080/users',
+                success : function(data){
+                    alert(data[0]);
+                },
+                error : function(){
+                    alert("fail");
+                }
+            })
+        });
+
         var menuList = [
                     '개미집',
                     '대련집',
@@ -521,7 +534,6 @@
             var recommendRestaurant ='<p>' + randText + ' </p>';
             reco.innerHTML = recommendRestaurant;
         }
-
     </script>
 </body>
 
