@@ -17,7 +17,7 @@ app.use(function (req, res, next) {
 });
 
 //Setting up server
- var server = app.listen(process.env.PORT || 8080, function () {
+ var server = app.listen(process.env.PORT || 3000, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
  });
@@ -56,7 +56,7 @@ var executeQuery = function(req, res){
 
 //GET ALL ACTIVE USERS FOR PATHWAYS
 app.get("/users", function(req, res){
-     var query = "select * from dbo.StoreListTable";
+     var query = "select * from dbo.StoreListTable where korean = 1 order by name";
      console.log(query);
      executeQuery(query, res);
 });
