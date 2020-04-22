@@ -165,7 +165,7 @@
                             storeMenu[i] = jsonFile[i].menu;
                             console.log(jsonFile[i].address);
                             naver.maps.Service.geocode({
-                                query: jsonFile[i].address
+                                query: jsonFile[markerNum].address
                             }, function(status, response) {
                                 if (status === naver.maps.Service.Status.ERROR) {
                                     return alert('Something Wrong!');
