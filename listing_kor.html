@@ -66,7 +66,7 @@
                     <div class="row light-bg detail-options-wrap" id="div_container"></div>
                 </div>
 
-                <script src="js/jquery-3.2.1.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
                 <script src="js/popper.min.js"></script>
                 <script src="js/bootstrap.min.js"></script>
                 <script>
@@ -87,6 +87,8 @@
                     var markers = [];
                     //infowindow
                     var Infowindow;
+                    var storeName = [];
+                    var storeMenu = [];
 
                     var map = new naver.maps.Map('map', {
 
@@ -113,9 +115,11 @@
                     type : 'get',
                     url : 'http://localhost:3000/users',
                     dataType : 'json',
-                    success : function(data){
+                    success : async function(data){
                         createDiv(data.recordset);
-                        searchAddressToCoordinate(data.recordset);
+                        for(const item of data.recordset){
+                            await searchAddressToCoordinate(item.address);
+                        }
                     },
                     error : function(){
                         alert("fail");
@@ -125,28 +129,29 @@
                 function createDiv(jsonFile){
                     var strDOM = "";
                     for (var i = 0; i < jsonFile.length; i++) {
-                        if(jsonFile[i].korean == 1){
-                            // N번째 식당 패널을 생성
-                            strDOM += '<div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">';
-                            strDOM += '<div id="res' + i + '" class="featured-place-wrap" onmouseover="showInfo(' + i + ')" onmouseout="hideInfo()">';
-                            strDOM += '<a href="' + jsonFile[i].homepage + '" target="_blank">';
-                            strDOM += '<img src="images/img_korean/' + jsonFile[i].img_name + '.jpg" class="img-fluid" alt="#">';
-                            strDOM += '<div class="featured-title-box">';
-                            strDOM += '<h6>' + jsonFile[i].name + '</h6>';
-                            strDOM += '<p>Restaurant</p>';
-                            strDOM += '<ul>';
-                            strDOM += '<li><span class="icon-location-pin"></span>';
-                            strDOM += '<p>' + jsonFile[i].address + '</p>';
-                            strDOM += '</li>';
-                            strDOM += '<li><span class="icon-screen-smartphone"></span>';
-                            strDOM += '<p>' + jsonFile[i].phone + '</p>';
-                            strDOM += '</li>';
-                            strDOM += '</ul>';
-                            strDOM += '</div>';
-                            strDOM += '</a>';
-                            strDOM += '</div>';
-                            strDOM += '</div>';
-                        }                       
+                        // N번째 식당 패널을 생성
+                        strDOM += '<div class="col-sm-6 col-lg-12 col-xl-6 featured-responsive">';
+                        strDOM += '<div id="res' + i + '" class="featured-place-wrap" onmouseover="showInfo(' + i + ')" onmouseout="hideInfo()">';
+                        strDOM += '<a href="' + jsonFile[i].homepage + '" target="_blank">';
+                        strDOM += '<img src="images/img_korean/' + jsonFile[i].img_name + '.jpg" class="img-fluid" alt="#">';
+                        strDOM += '<div class="featured-title-box">';
+                        strDOM += '<h6>' + jsonFile[i].name + '</h6>';
+                        strDOM += '<p>Restaurant</p>';
+                        strDOM += '<ul>';
+                        strDOM += '<li><span class="icon-location-pin"></span>';
+                        strDOM += '<p>' + jsonFile[i].address + '</p>';
+                        strDOM += '</li>';
+                        strDOM += '<li><span class="icon-screen-smartphone"></span>';
+                        strDOM += '<p>' + jsonFile[i].phone + '</p>';
+                        strDOM += '</li>';
+                        strDOM += '</ul>';
+                        strDOM += '</div>';
+                        strDOM += '</a>';
+                        strDOM += '</div>';
+                        strDOM += '</div>';
+                        //식당 이름, 메뉴 전역변수에 저장
+                        storeName[i] = jsonFile[i].name;
+                        storeMenu[i] = jsonFile[i].menu;                     
                     }
                     // 이미지 컨테이너에 생성한 이미지 패널들을 추가하기
                     var $div_container = $("#div_container");
@@ -155,46 +160,38 @@
 
                 var storeNum = "#div_container".length + 1;
                 var markerNum = 0;
-                var storeName = [];
-                var storeMenu = [];
 
-                function searchAddressToCoordinate(jsonFile) {
-                    for (var i = 0; i < jsonFile.length; i++) {
-                        if(jsonFile[i].korean == 1){
-                            storeName[i] = jsonFile[i].name;
-                            storeMenu[i] = jsonFile[i].menu;
-                            console.log(jsonFile[i].address);
-                            naver.maps.Service.geocode({
-                                query: jsonFile[i].address
-                            }, function(status, response) {
-                                if (status === naver.maps.Service.Status.ERROR) {
-                                    return alert('Something Wrong!');
-                                }
-                                if (response.v2.meta.totalCount === 0) {
-                                    return alert('totalCount' + response.v2.meta.totalCount);
-                                }
+                function searchAddressToCoordinate(address) {
+                    return new Promise(function(resolve){
+                        naver.maps.Service.geocode({
+                            query: address
+                        }, function(status, response) {
+                            if (status === naver.maps.Service.Status.ERROR) {
+                                return alert('Something Wrong!');
+                            }
+                            if (response.v2.meta.totalCount === 0) {
+                                return alert('totalCount' + response.v2.meta.totalCount);
+                            }
 
-                                var item = response.v2.addresses[0],
-                                    point = new naver.maps.Point(item.x, item.y);
+                            var item = response.v2.addresses[0],
+                                point = new naver.maps.Point(item.x, item.y);
 
-                                console.log(item);
-
-                                var marker = new naver.maps.Marker({
-                                    position: point,
-                                    map: map
-                                });
-
-                                markers.push(marker);
-                                marker.set('seq', markerNum);
-
-                                naver.maps.Event.addListener(marker, 'mouseover', onMouseOver);
-                                naver.maps.Event.addListener(marker, 'mouseout', onMouseOut);
-                                naver.maps.Event.addListener(marker, 'click', onClick);
-                                marker = null;
-                                markerNum++;
+                            var marker = new naver.maps.Marker({
+                                position: point,
+                                map: map
                             });
-                        }
-                    }
+
+                            markers.push(marker);
+                            marker.set('seq', markerNum);
+
+                            naver.maps.Event.addListener(marker, 'mouseover', onMouseOver);
+                            naver.maps.Event.addListener(marker, 'mouseout', onMouseOut);
+                            naver.maps.Event.addListener(marker, 'click', onClick);
+                            marker = null;
+                            markerNum++;
+                            resolve(point);
+                        }) 
+                    });                                                           
                 } 
 
                 function onClick(e){
@@ -225,7 +222,6 @@
 
                 function showInfo(idx){
                     var marker = markers[idx];
-
                     setInfoWindow(idx);
                     Infowindow.open(map, marker);
                 }
