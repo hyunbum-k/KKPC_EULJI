@@ -58,7 +58,7 @@
                                 <form id="search" class="form-wrap mt-4">
                                     <div class="btn-group" role="group" aria-label="Basic example">
                                         <input type="text" id = "restaurant_search" placeholder="What are your looking for?" class="btn-group1">
-                                        <button id="submit_name" type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
+                                        <button id="submit_name" type="button" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
                             </div>
@@ -522,25 +522,25 @@
             reco.innerHTML = recommendRestaurant;
         }
 
-        
-            
-
-            $("#submit_name").click(function(){
-                var obj = {"name" : $("#restaurant_search").val()}
-                $.ajax({
-                    type : 'post',
-                    url : 'http://localhost:3000/index',
-                    data : obj,
-                    success : function(data){
+        $("#submit_name").click(function(){
+            var obj = {"name" : $("#restaurant_search").val().replace(/ /g, '')}
+            $.ajax({
+                type : 'post',
+                url : 'http://localhost:3000/index',
+                data : obj,
+                success : function(data){
+                    if(data.recordset.length>0){
                         window.open(data.recordset[0].homepage);
-                    },
-                    error : function(){
-                        alert("fail");
+                    }else{
+                        alert("존재하지 않습니다.")
                     }
-                });
-            })
+                },
+                error : function(){
+                    alert("fail");
+                }
+            });
+        })
         
-
     </script>
 
 </body>
