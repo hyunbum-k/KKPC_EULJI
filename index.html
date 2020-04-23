@@ -55,10 +55,10 @@
                         </div>
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-10">
-                                <form class="form-wrap mt-4">
+                                <form id="search" class="form-wrap mt-4">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="text" placeholder="What are your looking for?" class="btn-group1">
-                                        <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
+                                        <input type="text" id = "restaurant_search" placeholder="What are your looking for?" class="btn-group1">
+                                        <button id="submit_name" type="button" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
                             </div>
@@ -85,32 +85,28 @@
                     <div class="row find-img-align">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <a href="listing_kor.html">
-                                    <div class="grid">
-                                        <figure class="effect-ruby">
-                                            <img src="images/한식.jpg" class="img-fluid" alt="img13" />
-                                            <figcaption>
-                                                <h5>한식</h5>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                </a>
+                                <div id="korean" class="grid">
+                                    <figure class="effect-ruby">
+                                        <img src="images/한식.jpg" class="img-fluid" alt="img13" />
+                                        <figcaption>
+                                            <h5>한식</h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <a href="listing_japan.html">
-                                    <div class="grid">
-                                        <figure class="effect-ruby">
-                                            <img src="images/일식.jpg" class="img-fluid" alt="img13" />
-                                            <figcaption>
-                                                <h5>일식</h5>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                </a>
+                                <div id="japanese" class="grid">
+                                    <figure class="effect-ruby">
+                                        <img src="images/일식.jpg" class="img-fluid" alt="img13" />
+                                        <figcaption>
+                                            <h5>일식</h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
                    </div>
@@ -119,32 +115,28 @@
                     <div class="row find-img-align">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <a href="listing_cha.html">
-                                    <div class="grid">
-                                        <figure class="effect-ruby">
-                                            <img src="images/중식.jpg" class="img-fluid" alt="img13" />
-                                            <figcaption>
-                                                <h5>중식</h5>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                </a>
+                                <div id="chinese" class="grid">
+                                    <figure class="effect-ruby">
+                                        <img src="images/중식.jpg" class="img-fluid" alt="img13" />
+                                        <figcaption>
+                                            <h5>중식</h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">                       
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <a href="listing_coffee.html">
-                                    <div class="grid">
-                                        <figure class="effect-ruby">
-                                            <img src="images/분식.jpg" class="img-fluid" alt="img13" />
-                                            <figcaption>
-                                                <h5>카페/분식</h5>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                </a>
+                                <div id="cafe" class="grid">
+                                    <figure class="effect-ruby">
+                                        <img src="images/분식.jpg" class="img-fluid" alt="img13" />
+                                        <figcaption>
+                                            <h5>카페/분식</h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
 
@@ -154,32 +146,28 @@
                     <div class="row find-img-align">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <a href="listing_oriental.html">
-                                    <div class="grid">
-                                        <figure class="effect-ruby">
-                                            <img src="images/동양.jpg" class="img-fluid" alt="img13" />
-                                            <figcaption>
-                                                <h5>동양</h5>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                </a>
+                                <div id="oriental" class="grid">
+                                    <figure class="effect-ruby">
+                                        <img src="images/동양.jpg" class="img-fluid" alt="img13" />
+                                        <figcaption>
+                                            <h5>동양</h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <a href="listing_western.html">
-                                    <div class="grid">
-                                        <figure class="effect-ruby">
-                                            <img src="images/서양.jpg" class="img-fluid" alt="img13" />
-                                            <figcaption>
-                                                <h5>서양</h5>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                </a>
+                                <div id="western" class="grid">
+                                    <figure class="effect-ruby">
+                                        <img src="images/서양.jpg" class="img-fluid" alt="img13" />
+                                        <figcaption>
+                                            <h5>서양</h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
                    </div>        
@@ -201,7 +189,7 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="find-place-img_wrap">
-                        <div class="grid">
+                        <div id="wendsday_pro" class="grid">
                             <figure class="effect-ruby">
                                 <img src="images/img_tv/수요미식회.jpg" height="550" alt="img13" />
                                 <figcaption>
@@ -216,7 +204,7 @@
                     <div class="row find-img-align">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <div class="grid">
+                                <div id="liveinfo_pro" class="grid">
                                     <figure class="effect-ruby">
                                         <img src="images/img_tv/생생정보.jpg" height="300" alt="img13" />
                                         <figcaption>
@@ -231,7 +219,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <div class="grid">
+                                <div id="livetonight_pro" class="grid">
                                     <figure class="effect-ruby">
                                         <img src="images/img_tv/생방송오늘저녁.jpg" height="219" alt="img13" />
                                         <figcaption>
@@ -248,7 +236,7 @@
                     <div class="row find-img-align">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <div class="grid">
+                                <div id="livetoday_pro" class="grid">
                                     <figure class="effect-ruby">
                                         <img src="images/img_tv/생방송투데이.jpg" height="200" alt="img13" />
                                         <figcaption>
@@ -263,7 +251,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <div class="grid">
+                                <div id="delicious_pro" class="grid">
                                     <figure class="effect-ruby">
                                         <img src="images/img_tv/맛있는녀석들.jpg" height="318" alt="img13" />
                                         <figcaption>
@@ -291,65 +279,61 @@
                 </div>
             </div>
 
-
             <div class="row">
                 <div class="col-md-3 category-responsive">
-                    <a href="#" class="category-wrap">
-                         <img src="images/img_sit/점심.jpg" width="260" height="200" alt="img13" style="margin: 0 0 1px;" />
-                    </a>
-                
-                                        <figcaption>
-                                          <p style="text-align:center; font-size: 20px; color:red;">점심</p>
-                                        </figcaption>
-
+                    <div id="lunch_sit" class="grid">
+                        <img src="images/img_sit/점심.jpg" width="260" height="200" alt="img13" style="margin: 0 0 1px;" />
+                        <figcaption>
+                            <p style="text-align:center; font-size: 20px; color:red;">점심</p>
+                        </figcaption>
+                    </div>
                 </div>
 
                 <div class="col-md-3 category-responsive">
-                    <a href="#" class="category-wrap">
-                         <img src="images/img_sit/저녁.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
-                    </a>
+                    <div id="dinner_sit" class="grid">
+                        <img src="images/img_sit/저녁.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
+                    </div>
                 </div>
 
                 <div class="col-md-3 category-responsive">
-                    <a href="#" class="category-wrap">
-                         <img src="images/img_sit/해장.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
-                    </a>
+                    <div id="recovery_sit" class="grid">
+                        <img src="images/img_sit/해장.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
+                    </div>
                 </div>
 
                 <div class="col-md-3 category-responsive">
-                    <a href="#" class="category-wrap">
-                         <img src="images/img_sit/임원추천.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
-                    </a>
+                    <div id="vicepre_sit" class="grid">
+                        <img src="images/img_sit/임원추천.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
+                    </div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-md-3 category-responsive">
-                    <a href="#" class="category-wrap">
-                         <img src="images/img_sit/생일.jpg" width="260" height="200" alt="img13" style="margin: 0 0 1px;" />
-                    </a>
-                                        <figcaption>
-                                          <p style="text-align:center; font-size: 20px; color:red;">생일</p>
-                                        </figcaption>
-
+                    <div id="birth_sit" class="grid">
+                        <img src="images/img_sit/생일.jpg" width="260" height="200" alt="img13" style="margin: 0 0 1px;" />
+                        <figcaption>
+                            <p style="text-align:center; font-size: 20px; color:red;">생일</p>
+                        </figcaption>
+                    </div>
                 </div>
 
                 <div class="col-md-3 category-responsive">
-                    <a href="#" class="category-wrap">
-                         <img src="images/img_sit/가볍게한잔.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
-                    </a>
+                    <div id="snack_sit" class="grid">
+                        <img src="images/img_sit/가볍게한잔.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
+                    </div>
                 </div>
 
                 <div class="col-md-3 category-responsive">
-                    <a href="#" class="category-wrap">
-                         <img src="images/img_sit/격식.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
-                    </a>
+                    <div id="polite_sit" class="grid">
+                        <img src="images/img_sit/격식.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
+                    </div>
                 </div>
 
                 <div class="col-md-3 category-responsive">
-                    <a href="#" class="category-wrap">
-                         <img src="images/find-place5.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
-                    </a>
+                    <div id="fast_sit" class="grid">
+                        <img src="images/find-place5.jpg" width="260" height="200" alt="img13" style="margin: 0 0 30px;" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -369,51 +353,51 @@
                 <div class="col-md-4 featured-responsive">
                     <p style="text-align:center; font-size: 20px; color:red; font-family: '맑은고딕';">인원</p> 
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <div id="6up_con" class="grid">
                             <img src="images/img_etc/사람5명.jpg"   height="220" alt="#">  
-                        </a>
+                        </div>
                     </div>
                 </div>
 
                 <div class="col-md-4 featured-responsive">
                     <p style="text-align:center; font-size: 20px; color:red;font-family: '맑은고딕'">주차</p>    
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <div id="park_con" class="grid">
                             <img src="images/img_etc/주차허용.jpg" height="220" alt="#">
-                        </a>
+                        </div>
                     </div>
                 </div>
                
                 <div class="col-md-4 featured-responsive">
                     <p style="text-align:center; font-size: 20px; color:red;font-family: '맑은고딕'">좌석</p>    
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <div id="table_con" class="grid">
                             <img src="images/img_etc/테이블.jpg" height="220"  alt="#"  >
-                        </a>                                 <!--class="img-fluid"-->
+                        </div>                                 <!--class="img-fluid"-->
                     </div>
                 </div>
               
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <div id="6down_con" class="grid">
                             <img src="images/img_etc/사람1명.jpg" height="220" alt="#">
-                        </a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <div id="nopark_con" class="grid">
                             <img src="images/img_etc/주차금지.jpg" height="220"  alt="#">
-                        </a>
+                        </div>
                     </div>
                 </div>
                 
                 <div class="col-md-4 featured-responsive">
                     <div class="featured-place-wrap">
-                        <a href="detail.html">
+                        <div id="sit_con" class="grid">
                             <img src="images/img_etc/좌식.jpg" height="220"  alt="#">
-                        </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -461,7 +445,7 @@
 
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
@@ -478,23 +462,6 @@
                 $('.fixed').removeClass('is-sticky');
 
             };
-        });
-
-        $("#reco").click(function(){
-            $.ajax({
-                type : 'get',
-                url : 'http://localhost:8080/users',
-                dataType : 'json',
-                success : function(data){
-                    //console.log(data);
-                    $.each(data.recordset, function(key, value){
-                        console.log(value.name);
-                    })
-                },
-                error : function(){
-                    alert("fail");
-                }
-            })
         });
 
         var menuList = [
@@ -538,7 +505,47 @@
             var recommendRestaurant ='<p>' + randText + ' </p>';
             reco.innerHTML = recommendRestaurant;
         }
+
+        $(document).ready(function(){
+            var div_id;
+            $(document).on("click", ".grid" , function() {
+                var div_id = $(this).attr("id");
+                var obj = {"category" : div_id};
+                $.ajax({
+                    type : 'post',
+                    url : 'http://localhost:3000/category',
+                    data : obj,
+                    success : function(data){
+                        $(location).attr('href',"listing.html");
+                    },
+                    error : function(){
+                        alert("fail");
+                    }
+                });
+            });
+        });
+
+        $("#submit_name").click(function(){
+            var obj = {"name" : $("#restaurant_search").val().replace(/ /g, '')}
+            $.ajax({
+                type : 'post',
+                url : 'http://localhost:3000/index',
+                data : obj,
+                success : function(data){
+                    if(data.recordset.length>0){
+                        window.open(data.recordset[0].homepage);
+                    }else{
+                        alert("존재하지 않습니다.")
+                    }
+                },
+                error : function(){
+                    alert("fail");
+                }
+            });
+        })
+        
     </script>
+
 </body>
 
 </html>
