@@ -2,10 +2,11 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var sql = require("mssql");
-var app = express(); 
+var app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }))
 // Body Parser Middleware
-app.use(bodyParser.json()); 
+app.use(bodyParser.json());
 
 //CORS Middleware
 app.use(function (req, res, next) {
@@ -59,6 +60,21 @@ app.get("/users", function(req, res){
      var query = "select * from dbo.StoreListTable where korean = 1 order by name";
      console.log(query);
      executeQuery(query, res);
+});
+
+app.post("/index", function (req, res) {
+  var name = req.body.name;
+  var query = "select homepage from dbo.StoreListTable where name = '" + name + "'";
+  console.log(query);
+  executeQuery(query, res);
+});
+
+var category;
+app.post("/category", function (req, res) {
+  category = req.body.name;
+  var query = "select homepage from dbo.StoreListTable where "+ category + "= 1 order by name";
+  console.log(query);
+  executeQuery(query, res);
 });
 
 /*//GET ONE USER

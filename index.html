@@ -55,10 +55,10 @@
                         </div>
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-10">
-                                <form class="form-wrap mt-4">
+                                <form id="search" class="form-wrap mt-4">
                                     <div class="btn-group" role="group" aria-label="Basic example">
-                                        <input type="text" placeholder="What are your looking for?" class="btn-group1">
-                                        <button type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
+                                        <input type="text" id = "restaurant_search" placeholder="What are your looking for?" class="btn-group1">
+                                        <button id="submit_name" type="submit" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
                                     </div>
                                 </form>
                             </div>
@@ -461,7 +461,7 @@
 
     <!-- jQuery, Bootstrap JS. -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
@@ -478,23 +478,6 @@
                 $('.fixed').removeClass('is-sticky');
 
             };
-        });
-
-        $("#reco").click(function(){
-            $.ajax({
-                type : 'get',
-                url : 'http://localhost:8080/users',
-                dataType : 'json',
-                success : function(data){
-                    //console.log(data);
-                    $.each(data.recordset, function(key, value){
-                        console.log(value.name);
-                    })
-                },
-                error : function(){
-                    alert("fail");
-                }
-            })
         });
 
         var menuList = [
@@ -538,7 +521,28 @@
             var recommendRestaurant ='<p>' + randText + ' </p>';
             reco.innerHTML = recommendRestaurant;
         }
+
+        
+            
+
+            $("#submit_name").click(function(){
+                var obj = {"name" : $("#restaurant_search").val()}
+                $.ajax({
+                    type : 'post',
+                    url : 'http://localhost:3000/index',
+                    data : obj,
+                    success : function(data){
+                        window.open(data.recordset[0].homepage);
+                    },
+                    error : function(){
+                        alert("fail");
+                    }
+                });
+            })
+        
+
     </script>
+
 </body>
 
 </html>
