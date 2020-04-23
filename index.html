@@ -525,15 +525,15 @@
             });
         });
 
-        $("#submit_name").click(function(){
-            var obj = {"name" : $("#restaurant_search").val().replace(/ /g, '')}
-
-            $('#restaurant_search').keypress(function(event){
-            if ( event.which == 13 ) {
-            $('#submit_name').click();
-            return false;
-                      }
-                });
+$("#submit_name").click(function(){
+                var obj = {"name" : $("#restaurant_search").val()}
+               
+$('#restaurant_search').keypress(function(event){
+     if ( event.which == 13 ) {
+         $('#submit_name').click();
+         return false;
+     }
+});
 
             $.ajax({
                 type : 'post',
