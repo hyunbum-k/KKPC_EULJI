@@ -134,6 +134,7 @@
                         strDOM += '<div id="res' + i + '" class="featured-place-wrap" onmouseover="showInfo(' + i + ')" onmouseout="hideInfo()">';
                         strDOM += '<a href="' + jsonFile[i].homepage + '" target="_blank">';
                         strDOM += '<img src="images/img_korean/' + jsonFile[i].img_name + '.jpg" class="img-fluid" alt="#">';
+                        strDOM += '</a>';
                         strDOM += '<div class="featured-title-box">';
                         strDOM += '<h6>' + jsonFile[i].name + '</h6>';
                         strDOM += '<p>Restaurant</p>';
@@ -145,10 +146,13 @@
                         strDOM += '<p>' + jsonFile[i].phone + '</p>';
                         strDOM += '</li>';
                         strDOM += '</ul>';
+                        strDOM += '<div class="bottom-icons">';
+                        strDOM += '<span id="heart' + i + '" class="ti-heart">' + " " + jsonFile[i].review + '</span>';
                         strDOM += '</div>';
-                        strDOM += '</a>';
                         strDOM += '</div>';
                         strDOM += '</div>';
+                        strDOM += '</div>';
+
                         //식당 이름, 메뉴 전역변수에 저장
                         storeName[i] = jsonFile[i].name;
                         storeMenu[i] = jsonFile[i].menu;                     
@@ -255,6 +259,38 @@
                 var numRestaurant ='<p>' + storeNum + ' Results For <span>Restaurant</span></p>';
                 display.innerHTML = numRestaurant;
 
+                //review 등록
+                $(document).ready(function(){
+                    var div_id, review_num;
+                    $(document).on("click", ".ti-heart" , function() {
+                        div_id = $(this).attr("id");
+                        var obj = {"name" : storeName[div_id[5]]};
+                        $.ajax({
+                            type : 'post',
+                            url : 'http://localhost:3000/review_update',
+                            data : obj,
+                            success : function(data){
+                                
+                            },
+                            error : function(){
+                                alert("fail");
+                            }
+                        });
+                        $.ajax({
+                            type : 'post',
+                            url : 'http://localhost:3000/review_get',
+                            data : obj,
+                            success : function(data){
+                                review_num = data.recordset[0].review;
+                                $('#heart' + div_id[5]).html(" " + review_num);
+                            },
+                            error : function(){
+                                alert("fail");
+                            }
+                        });                       
+                    });
+                });
+                
                 </script>                
             </div>
         </div>
