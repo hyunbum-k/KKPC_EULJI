@@ -55,10 +55,16 @@ var executeQuery = function(req, res){
     });           
 }
 
+var category;
+app.post("/category", function (req, res) {
+  category = req.body.category.toString();
+  res.send(category);
+});
+
 //GET ALL ACTIVE USERS FOR PATHWAYS
 app.get("/users", function(req, res){
      var query = "select t1.*, t2.review from dbo.StoreListTable t1 join dbo.ReviewTable t2 on t1.name = t2.name"
-                    + " and t1.address = t2.address and t1.menu = t2.menu where t1.korean = 1 order by name";
+                    + " and t1.address = t2.address and t1.menu = t2.menu where t1." + category + " = 1 order by name";
      console.log(query);
      executeQuery(query, res);
 });
@@ -66,14 +72,6 @@ app.get("/users", function(req, res){
 app.post("/index", function (req, res) {
   var name = req.body.name;
   var query = "select homepage from dbo.StoreListTable where name = '" + name + "'";
-  console.log(query);
-  executeQuery(query, res);
-});
-
-var category;
-app.post("/category", function (req, res) {
-  category = req.body.name;
-  var query = "select homepage from dbo.StoreListTable where "+ category + "= 1 order by name";
   console.log(query);
   executeQuery(query, res);
 });

@@ -85,32 +85,28 @@
                     <div class="row find-img-align">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <a href="listing_kor.html">
-                                    <div class="grid">
-                                        <figure class="effect-ruby">
-                                            <img src="images/한식.jpg" class="img-fluid" alt="img13" />
-                                            <figcaption>
-                                                <h5>한식</h5>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                </a>
+                                <div id="korean" class="grid">
+                                    <figure class="effect-ruby">
+                                        <img src="images/한식.jpg" class="img-fluid" alt="img13" />
+                                        <figcaption>
+                                            <h5>한식</h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="find-place-img_wrap">
-                                <a href="listing_japan.html">
-                                    <div class="grid">
-                                        <figure class="effect-ruby">
-                                            <img src="images/일식.jpg" class="img-fluid" alt="img13" />
-                                            <figcaption>
-                                                <h5>일식</h5>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                </a>
+                                <div id="japanese" class="grid">
+                                    <figure class="effect-ruby">
+                                        <img src="images/일식.jpg" class="img-fluid" alt="img13" />
+                                        <figcaption>
+                                            <h5>일식</h5>
+                                        </figcaption>
+                                    </figure>
+                                </div>
                             </div>
                         </div>
                    </div>
@@ -521,6 +517,25 @@
             var recommendRestaurant ='<p>' + randText + ' </p>';
             reco.innerHTML = recommendRestaurant;
         }
+
+        $(document).ready(function(){
+            var div_id;
+            $(document).on("click", ".grid" , function() {
+                var div_id = $(this).attr("id");
+                var obj = {"category" : div_id};
+                $.ajax({
+                    type : 'post',
+                    url : 'http://localhost:3000/category',
+                    data : obj,
+                    success : function(data){
+                        $(location).attr('href',"listing.html");
+                    },
+                    error : function(){
+                        alert("fail");
+                    }
+                });
+            });
+        });
 
         $("#submit_name").click(function(){
             var obj = {"name" : $("#restaurant_search").val().replace(/ /g, '')}
