@@ -4,6 +4,7 @@
   "description": "**ThemeWagon** is a great source for downloading free HTML templates built with the latest technology.",
   "main": "app.js",
   "scripts": {
+    "start" : "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
