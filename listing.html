@@ -55,6 +55,19 @@
                         </div>
                         <div class="col-md-8 featured-responsive">
                             <div class="detail-filter">
+                                <p>Filter by</p>
+                                <form class="filter-dropdown">
+                                    <select class="custom-select mb-2 mr-sm-2 mb-sm-0" id="inlineFormCustomSelect">
+                                        <option selected>name</option>
+                                        <option>review</option>
+                                        <!--<option value="2">Two</option>
+                                        <option value="3">Three</option>-->
+                                    </select>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-md-8 featured-responsive">
+                            <div class="detail-filter">
                                 <form class="filter-dropdown"></form>
                                 <form class="filter-dropdown"></form>
                                 <div class="map-responsive-wrap">
@@ -111,12 +124,44 @@
 
                         });
 
+                    var select_sort = "name";
+                    var obj = {"sort" : select_sort};
+                    $(document).ready(function(){
+                        $(document).on("change", "#inlineFormCustomSelect" , function() {
+                            select_sort = $("#inlineFormCustomSelect").find(":selected").val();
+                            if(select_sort == "review"){
+                                select_sort = select_sort + " DESC";
+                            }
+                            obj = {"sort" : select_sort};
+                            $.ajax({
+                                type : 'post',
+                                url : 'http://localhost:3000/users',
+                                data : obj,
+                                success : async function(data){
+                                    initDiv();
+                                    createDiv(data.recordset);
+                                    for(const item of data.recordset){
+                                        await searchAddressToCoordinate(item.address);
+                                    }
+                                },
+                                error : function(){
+                                    alert("fail");
+                                }
+                            });
+                        });
+                    });
+
+                    function initDiv(){
+                        $("#div_container").empty();
+                        markers = [];
+                        markerNum=0;
+                    }
+
                 $.ajax({
-                    type : 'get',
+                    type : 'post',
                     url : 'http://localhost:3000/users',
-                    dataType : 'json',
+                    data : obj,
                     success : async function(data){
-                        console.log(data.recordset);
                         createDiv(data.recordset);
                         for(const item of data.recordset){
                             await searchAddressToCoordinate(item.address);
