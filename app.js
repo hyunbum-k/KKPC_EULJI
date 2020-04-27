@@ -93,12 +93,8 @@ app.post("/review_get", function (req, res) {
   executeQuery(query, res);
 });
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
-}
-
-app.get('*', (request, response) => {
-  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+app.get('/', function (req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 /*//GET ONE USER
