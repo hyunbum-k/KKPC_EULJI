@@ -22,7 +22,7 @@ app.use(function (req, res, next) {
 });
 
 //Setting up server
- var server = app.listen(process.env.PORT || 3000, function () {
+ var server = app.listen(process.env.PORT, function () {
     var port = server.address().port;
     console.log("App now running on port", port);
  });
