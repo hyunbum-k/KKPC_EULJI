@@ -5,6 +5,8 @@ var sql = require("mssql");
 var app = express();
 var path = require("path");
 
+var publicDir = require('path').join(__dirname,'/public');
+app.use(express.static(publicDir));
 
 app.use(bodyParser.urlencoded({ extended: false }))
 // Body Parser Middleware
