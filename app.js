@@ -9,7 +9,7 @@ var path = require("path");
 app.use(bodyParser.urlencoded({ extended: false }))
 // Body Parser Middleware
 app.use(bodyParser.json());
-app.use(express.static('public'));
+app.use(express.static('images'));
 //CORS Middleware
 app.use(function (req, res, next) {
     //Enabling CORS 
