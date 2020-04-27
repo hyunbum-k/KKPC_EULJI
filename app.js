@@ -21,6 +21,11 @@ app.use(function (req, res, next) {
     next();
 });
 
+//Setting up server
+ var server = app.listen(process.env.PORT, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
+ });
 
 //Initialising connection string
 var dbConfig = {
