@@ -62,6 +62,7 @@ var executeQuery = function(req, res){
 var category;
 app.post("/category", function (req, res) {
   category = req.body.category.toString();
+  console.log(category);
   res.send(category);
 });
 
