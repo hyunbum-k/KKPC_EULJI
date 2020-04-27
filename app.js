@@ -92,6 +92,14 @@ app.post("/review_get", function (req, res) {
   executeQuery(query, res);
 });
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
+app.get('*', (request, response) => {
+  response.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+});
+
 /*//GET ONE USER
 app.get("/users/:userid/", function(req, res){
   var query = "select * from LMS.dbo.Users where UserID = " + req.params.userid;
