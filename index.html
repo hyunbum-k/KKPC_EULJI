@@ -527,17 +527,14 @@
 
 
         $('#restaurant_search').keypress(function(event){
-     if ( event.which == 13 ) {
-         $('#submit_name').click();
-         return false;
-     }
-});
+            if ( event.which == 13 ) {
+                $('#submit_name').click();
+                return false;
+            }
+        });
 
-$("#submit_name").click(function(){
-                var obj = {"name" : $("#restaurant_search").val()}
-               
-
-
+        $("#submit_name").click(function(){
+            var obj = {"name" : $("#restaurant_search").val()} 
             $.ajax({
                 type : 'post',
                 url : 'http://localhost:3000/index',
