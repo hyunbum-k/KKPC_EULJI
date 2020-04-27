@@ -97,6 +97,10 @@ app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.get('/images', function (req, res) {
+    res.sendFile(path.join(__dirname + '/images/'));
+});
+
 /*//GET ONE USER
 app.get("/users/:userid/", function(req, res){
   var query = "select * from LMS.dbo.Users where UserID = " + req.params.userid;
