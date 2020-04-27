@@ -4,11 +4,8 @@ var bodyParser = require("body-parser");
 var sql = require("mssql");
 var app = express();
 var path = require("path");
-<<<<<<< HEAD
 
-=======
-var io = require('socket.io').listen(app);
->>>>>>> parent of e6097b7... Update app.js
+
 app.use(bodyParser.urlencoded({ extended: false }))
 // Body Parser Middleware
 app.use(bodyParser.json());
