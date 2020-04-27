@@ -145,7 +145,7 @@
                                     }
                                 },
                                 error : function(){
-                                    alert("fail");
+                                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                                 }
                             });
                         });
@@ -168,7 +168,7 @@
                         }
                     },
                     error : function(){
-                        alert("fail");
+                        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                     }
                 });
 
