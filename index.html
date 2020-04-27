@@ -519,7 +519,7 @@
                         $(location).attr('href',"listing.html");
                     },
                     error : function(){
-                        alert("fail");
+                        alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                     }
                 });
             });
