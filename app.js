@@ -62,13 +62,13 @@ var executeQuery = function(req, res){
 var category;
 app.post("/category", function (req, res) {
   category = req.body.category.toString();
-  console.log(category);
   res.send(category);
 });
 
 //GET ALL ACTIVE USERS FOR PATHWAYS
 app.post("/users", function(req, res){
   var sort = req.body.sort.toString();
+  console.log(sort);
   var query = "select t1.*, t2.review from dbo.StoreListTable t1 join dbo.ReviewTable t2 on t1.name = t2.name"
                     + " and t1.address = t2.address and t1.menu = t2.menu where t1."
                     + category + " = 1 order by t2." + sort;
