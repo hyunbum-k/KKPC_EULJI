@@ -135,7 +135,7 @@
                             obj = {"sort" : select_sort};
                             $.ajax({
                                 type : 'post',
-                                url : 'http://localhost:3000/users',
+                                url : 'https://euljiro.herokuapp.com/users',
                                 data : obj,
                                 success : async function(data){
                                     initDiv();
@@ -159,7 +159,7 @@
 
                 $.ajax({
                     type : 'post',
-                    url : 'http://localhost:3000/users',
+                    url : 'https://euljiro.herokuapp.com/users',
                     data : obj,
                     success : async function(data){
                         createDiv(data.recordset);
@@ -208,7 +208,6 @@
                     $div_container.append(strDOM);
                 }
 
-                var storeNum = "#div_container".length + 1;
                 var markerNum = 0;
 
                 function searchAddressToCoordinate(address) {
@@ -302,7 +301,7 @@
                 }
 
                 //restaurant 갯수 출력
-                var numRestaurant ='<p>' + storeNum + ' Results For <span>Restaurant</span></p>';
+                var numRestaurant ='<p>' + storeName.length + ' Results For <span>Restaurant</span></p>';
                 display.innerHTML = numRestaurant;
 
                 //review 등록
@@ -313,7 +312,7 @@
                         var obj = {"name" : storeName[div_id[5]]};
                         $.ajax({
                             type : 'post',
-                            url : 'http://localhost:3000/review_update',
+                            url : 'https://euljiro.herokuapp.com/review_update',
                             data : obj,
                             success : function(data){
                                 
@@ -324,7 +323,7 @@
                         });
                         $.ajax({
                             type : 'post',
-                            url : 'http://localhost:3000/review_get',
+                            url : 'https://euljiro.herokuapp.com/review_get',
                             data : obj,
                             success : function(data){
                                 review_num = data.recordset[0].review;
