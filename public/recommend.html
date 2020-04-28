@@ -31,18 +31,18 @@
 
       <fieldset class="pure-group">
         <label for="name">Name: </label>
-        <input id="name" name="name" placeholder="What your favourite restaurant is" />
+        <input id="name" name="name" style="width:250px" placeholder="What your favourite restaurant is" />
       </fieldset>
 
       <fieldset class="pure-group">
         <label for="address">Address: </label>
-        <input id="address" class="postcodify_address" name="address" placeholder="Tell us restaurant's address(도로명 주소)">
+        <input id="address" class="postcodify_address" name="address" style="width:450px" placeholder="Tell us restaurant's address(도로명 주소)">
         <input type="button" id="search_button" value="검색">
       </fieldset>
 
       <fieldset class="pure-group">
         <label for="menu">Favourite Menu: </label>
-        <input id="menu" name="menu" placeholder="Favourite Menu" />
+        <input id="menu" name="menu" style="width:250px" placeholder="Favourite Menu" />
       </fieldset>
 
       <fieldset class="pure-group honeypot-field">
@@ -72,8 +72,8 @@
   <!-- Submit the Form to Google Using "AJAX" -->
   <script data-cfasync="false">
   	
-  	$("#send").click(function(){
-  		function getFormData(form) {
+  	
+  	function getFormData(form) {
     	var elements = form.elements;
     	var honeypot;
 
@@ -175,7 +175,6 @@
       		buttons[i].disabled = true;
     	}
   	}
-  	});
   	
   </script>
 <!-- END -->
