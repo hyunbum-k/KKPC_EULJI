@@ -157,7 +157,6 @@
                         markerNum=0;
                     }
 
-                $(document).ready(function(){
                 $.ajax({
                     type : 'post',
                     url : 'https://euljiro.herokuapp.com/users',
@@ -172,7 +171,6 @@
                         alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                     }
                 });
-            });
 
                 function createDiv(jsonFile){
                     var strDOM = "";
