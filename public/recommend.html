@@ -1,44 +1,69 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="#">
-    <!-- Page Title -->
-    <title>Contact Form</title>
-    <!-- Bootstrap CSS -->
-    <!--<link rel="stylesheet" href="/css/bootstrap.min.css"> -->>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="contact form example">
+  <title>Contact Form Example</title>
 </head>
 
 <body>
-	<div id="form-content" class="modal hide fade in" style="display: none; ">
-        <div class="modal-header">
-            <a class="close" data-dismiss="modal">×</a>
-            <h3>Contact us</h3>
-        </div>
- 	<div>
-	<form class="gform" method="post" data-email="example@email.net"
-		action="https://script.google.com/macros/s/AKfycbw6h1uLB4GKSXAjFV_cP1KLO6XaECX69imqvjn8/exec">
-		<fieldset>
-        	<div class="modal-body">
-          		<ul class="nav nav-list">
- 					<li class="nav-header">Name</li>
- 					<li><input class="input-xlarge" value=" krizna" type="text" name="name"></li>
- 					<li class="nav-header">Email</li>
- 					<li><input class="input-xlarge" value=" user@krizna.com" type="text" name="Email"></li>
- 					<li class="nav-header">Message</li>
- 					<li><textarea class="input-xlarge" name="sug" rows="3"> Thanks for the article and demo
- 						</textarea></li>
- 				</ul> 
-         	</div>
- 		</fieldset>
-	</form>
-	<div class="modal-footer">
-        <button class="btn btn-success" id="submit">submit</button>
-        <a href="#" class="btn" data-dismiss="modal">Close</a>
-   	</div>
+  <h2 class="content-head is-center">Contact Us!</h2>
+  <aside>
+       <p>
+           We would <em>love</em> to hear from you! </p>
+           <p>Please use the <b><em>Contact Form</em></b>
+           to send us a message.
+       </p>
+   </aside>
+
+<!-- START HERE -->
+   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+   <!-- Style The Contact Form How Ever You Prefer -->
+   <link rel="stylesheet" href="css/style_mail.css">
+
+  <form class="gform pure-form pure-form-stacked" method="POST" data-email="example@email.net"
+  action="https://script.google.com/macros/s/AKfycbw6h1uLB4GKSXAjFV_cP1KLO6XaECX69imqvjn8/exec">
+    <!-- change the form action to your script url -->
+
+    <div class="form-elements">
+    	
+      <fieldset class="pure-group">
+        <label for="name">Name: </label>
+        <input id="name" name="name" placeholder="What your favourite restaurant is" />
+      </fieldset>
+
+      <fieldset class="pure-group">
+        <label for="address">Message: </label>
+        <input id="address" name="address" placeholder="Tell us restaurant's address"></textarea>
+      </fieldset>
+
+      <fieldset class="pure-group">
+        <label for="menu">Favourite Menu: </label>
+        <input id="menu" name="menu" placeholder="Favourite Menu" />
+      </fieldset>
+
+      <fieldset class="pure-group honeypot-field">
+        <label for="honeypot">To help avoid spam, utilize a Honeypot technique with a hidden text field; must be empty to submit the form! Otherwise, we assume the user is a spam bot.</label>
+        <input id="honeypot" type="text" name="honeypot" value="" />
+      </fieldset>
+
+      <button class="button-success pure-button button-xlarge">
+        <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
+    </div>
+
+    <!-- Customise the Thankyou Message People See when they submit the form: -->
+    <div class="thankyou_message" style="display:none;">
+      <h2><em>Thanks</em> for contacting us!
+        We will get back to you soon!</h2>
+    </div>
+
+  </form>
+
+  <!-- Submit the Form to Google Using "AJAX" -->
+  <script data-cfasync="false" src="form-submission-handler.js"></script>
+<!-- END -->
+
 </body>
 </html>
