@@ -159,7 +159,8 @@
 
                 $.ajax({
                     type : 'post',
-
+                    cache: false,
+                    url : 'https://euljiro.herokuapp.com/users',
                     data : obj,
                     success : async function(data){
                         createDiv(data.recordset);
