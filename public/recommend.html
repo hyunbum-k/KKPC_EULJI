@@ -41,8 +41,8 @@
       </fieldset>
 
       <fieldset class="pure-group">
-        <label for="menu">Favourite Menu: </label>
-        <input id="menu" name="menu" style="width:250px" placeholder="Favourite Menu" />
+        <label for="menu">Best Menu: </label>
+        <input id="menu" name="menu" style="width:250px" placeholder="Best Menu" />
       </fieldset>
 
       <fieldset class="pure-group honeypot-field">
@@ -166,7 +166,12 @@
       		forms[i].addEventListener("submit", handleFormSubmit, false);
     	}
   	};
-  	document.addEventListener("DOMContentLoaded", loaded, false);
+  	
+  	if(document.name.value=="" || document.address.value=="" || document.menu.value==""){
+  		alert("모든 항목을 채워주세요.");
+  	}else{
+  		document.addEventListener("DOMContentLoaded", loaded, false);
+  	}
 
   	function disableAllButtons(form) {
     	var buttons = form.querySelectorAll("button");
