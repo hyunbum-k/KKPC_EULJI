@@ -167,7 +167,7 @@
     	}
   	};
   	
-  	if(document.name.value=="" || document.address.value=="" || document.menu.value==""){
+  	if($('#name').val().trim()=="" || $('#address').val().trim()=="" || $('#menu').val().trim()==""){
   		alert("모든 항목을 채워주세요.");
   	}else{
   		document.addEventListener("DOMContentLoaded", loaded, false);
