@@ -30,7 +30,7 @@
     <div class="form-elements">
 
       <fieldset class="pure-group">
-        <label for="name">Name: </label>
+        <label for="name">Restaurant Name: </label>
         <input id="name" name="name" style="width:250px" placeholder="What your favourite restaurant is" />
       </fieldset>
 
@@ -50,7 +50,7 @@
         <input id="honeypot" type="text" name="honeypot" value="" />
       </fieldset>
 
-      <button id="send" class="button-success pure-button button-xlarge">
+      <button class="button-success pure-button button-xlarge">
         <i class="fa fa-paper-plane"></i>&nbsp;Send</button>
     </div>
 
@@ -71,8 +71,7 @@
 
   <!-- Submit the Form to Google Using "AJAX" -->
   <script data-cfasync="false">
-  	
-  	
+  	 	
   	function getFormData(form) {
     	var elements = form.elements;
     	var honeypot;
