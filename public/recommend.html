@@ -13,7 +13,8 @@
        <p>
            We would <em>love</em> to hear from you! </p>
            <p>Please use the <b><em>Contact Form</em></b>
-           to send us a message.
+           to send us a message.</p>
+           <p>All items must be entered.
        </p>
    </aside>
 
@@ -166,12 +167,7 @@
       		forms[i].addEventListener("submit", handleFormSubmit, false);
     	}
   	};
-  	
-  	if($('#name').val().trim()=="" || $('#address').val().trim()=="" || $('#menu').val().trim()==""){
-  		alert("모든 항목을 채워주세요.");
-  	}else{
-  		document.addEventListener("DOMContentLoaded", loaded, false);
-  	}
+  	document.addEventListener("DOMContentLoaded", loaded, false);
 
   	function disableAllButtons(form) {
     	var buttons = form.querySelectorAll("button");
