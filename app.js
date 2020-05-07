@@ -31,7 +31,7 @@ app.use(function (req, res, next) {
 var dbConfig = {
     user:  "emladmin",
     password: "emladmin!",
-    server: "10.24.0.155",
+    server: "183.110.229.248",
     database: "EMLDB"
 };
 
