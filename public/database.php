@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username = "id12634515_emladmin";
-$password = "vk2Be1hv_mV(^mR6";
-$database = "id12634515_emldb";
+$username = "id13663431_euljidb";
+$password = "dltkdrn123!@#Q";
+$database = "id13663431_eulji1";
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
