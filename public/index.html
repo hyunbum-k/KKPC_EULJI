@@ -627,10 +627,11 @@
             var div_id;
             $(document).on("click", ".grid" , function() {
                 var div_id = $(this).attr("id");
-                var obj = {"category" : div_id};
+                var obj = {"action" : "category", "category" : div_id};
+                localStorage["category"] = div_id;
                 $.ajax({
                     type : 'post',
-                    url : 'https://euljiro.herokuapp.com/category',
+                    url : 'database.php',
                     data : obj,
                     success : function(data){
                         $(location).attr('href',"/listing.html");
@@ -639,7 +640,8 @@
                         alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
                     }
                 });
-            });
+
+            });           
         });
 
 
@@ -651,12 +653,13 @@
         });
 
         $("#submit_name").click(function(){
-            var obj = {"name" : $("#restaurant_search").val()} 
+            var obj = {"action" : "search", "name" : $("#restaurant_search").val()} 
             $.ajax({
                 type : 'post',
-                url : 'https://euljiro.herokuapp.com/index',
+                url : 'database.php',
                 data : obj,
                 success : function(data){
+                    data = JSON.parse(data);
                     if(data.recordset.length>0){
                         window.open(data.recordset[0].homepage);
                     }else{

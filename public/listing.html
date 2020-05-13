@@ -123,21 +123,23 @@
                         mapTypeControl : true,
 
                         });
+                    var category = localStorage["category"];
 
                     var select_sort = "name";
-                    var obj = {"sort" : select_sort};
+                    var obj = {"action" : "select", "category" : category, "sort" : select_sort};
                     $(document).ready(function(){
                         $(document).on("change", "#inlineFormCustomSelect" , function() {
                             select_sort = $("#inlineFormCustomSelect").find(":selected").val();
                             if(select_sort == "review"){
                                 select_sort = select_sort + " DESC";
                             }
-                            obj = {"sort" : select_sort};
+                            obj = {"action" : "select", "category" : category, "sort" : select_sort};
                             $.ajax({
                                 type : 'post',
-                                url : 'https://euljiro.herokuapp.com/users',
+                                url : 'database.php',
                                 data : obj,
                                 success : async function(data){
+                                    data = JSON.parse(data);
                                     initDiv();
                                     createDiv(data.recordset);
                                     for(const item of data.recordset){
@@ -159,9 +161,10 @@
 
                 $.ajax({
                     type : 'post',
-                    url : 'https://euljiro.herokuapp.com/users',
+                    url : 'database.php',
                     data : obj,
                     success : async function(data){
+                        data = JSON.parse(data);
                         createDiv(data.recordset);
                         for(const item of data.recordset){
                             await searchAddressToCoordinate(item.address);
@@ -206,6 +209,10 @@
                     // 이미지 컨테이너에 생성한 이미지 패널들을 추가하기
                     var $div_container = $("#div_container");
                     $div_container.append(strDOM);
+                    
+                    //restaurant 갯수 출력
+                    var numRestaurant ='<p>' + jsonFile.length + ' Results For <span>Restaurant</span></p>';
+                    display.innerHTML = numRestaurant;
                 }
 
                 var markerNum = 0;
@@ -300,39 +307,25 @@
                         });
                 }
 
-                //restaurant 갯수 출력
-                var numRestaurant ='<p>' + markerNum + ' Results For <span>Restaurant</span></p>';
-                display.innerHTML = numRestaurant;
-
                 //review 등록
                 $(document).ready(function(){
                     var div_id, review_num;
                     $(document).on("click", ".ti-heart" , function() {
                         div_id = $(this).attr("id");
-                        var obj = {"name" : storeName[div_id[5]]};
+                        var obj = {"action" : "review_update", "name" : storeName[div_id[5]]};
                         $.ajax({
                             type : 'post',
-                            url : 'https://euljiro.herokuapp.com/review_update',
+                            url : 'database.php',
                             data : obj,
                             success : function(data){
-                                
-                            },
-                            error : function(){
-                                alert("fail");
-                            }
-                        });
-                        $.ajax({
-                            type : 'post',
-                            url : 'https://euljiro.herokuapp.com/review_get',
-                            data : obj,
-                            success : function(data){
+                                data = JSON.parse(data);
                                 review_num = data.recordset[0].review;
                                 $('#heart' + div_id[5]).html(" " + review_num);
                             },
                             error : function(){
                                 alert("fail");
                             }
-                        });                       
+                        });
                     });
                 });
                 
