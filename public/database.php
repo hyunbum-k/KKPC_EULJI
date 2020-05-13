@@ -39,7 +39,7 @@ if($_POST['action']=='select'){
 	echo $data;
 	mysqli_close($conn);
 }
-if($_POST['action']=='search'){
+else if($_POST['action']=='search'){
 	$name = $_POST['name'];
 	$sql = "select homepage from StoreListTable where name = '" . $name . "'";
 	$result = mysqli_query($conn, $sql);
@@ -55,7 +55,7 @@ if($_POST['action']=='search'){
 	echo $data;
 	mysqli_close($conn);
 }
-if($_POST['action']=='review_update'){
+else if($_POST['action']=='review_update'){
 	$name = $_POST['name'];
 	$sql = "update ReviewTable set review = review + 1 where name = '" . $name . "'";
 	
@@ -76,7 +76,7 @@ if($_POST['action']=='review_update'){
 	
 	mysqli_close($conn);
 }
-if($_POST['action']=='review_get'){
+else if($_POST['action']=='review_get'){
 	$name = $_POST['name'];
 	$sql = "select review from ReviewTable where name = '" . $name . "'";
 	$result = mysqli_query($conn, $sql);
